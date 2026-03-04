@@ -1,11 +1,26 @@
 {
-  "name": "oss-mcp-ms365-files",
+  "name": "oss-mcp-onedrive",
   "version": "0.1.0",
-  "description": "MCP server for Microsoft 365 OneDrive and SharePoint file operations",
+  "description": "MCP server for Microsoft 365 OneDrive and SharePoint — browse, search, upload, and manage files via AI assistants",
   "license": "MIT",
+  "author": "dieudonne84",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omnitrex-oss/oss-mcp-onedrive.git"
+  },
+  "homepage": "https://github.com/omnitrex-oss/oss-mcp-onedrive",
+  "bugs": "https://github.com/omnitrex-oss/oss-mcp-onedrive/issues",
+  "keywords": [
+    "mcp",
+    "onedrive",
+    "sharepoint",
+    "microsoft-365",
+    "files",
+    "graph-api"
+  ],
   "type": "module",
   "bin": {
-    "mcp-ms365-files": "./dist/index.js"
+    "oss-mcp-onedrive": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

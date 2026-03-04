@@ -1,6 +1,6 @@
-# oss-mcp-ms365-files
+# oss-mcp-onedrive
 
-MCP server for Microsoft 365 OneDrive and SharePoint — browse, search, upload, and manage files directly from Claude Code.
+MCP server for Microsoft 365 OneDrive and SharePoint — browse, search, upload, and manage files via AI assistants.
 
 ## Features
 
@@ -20,7 +20,7 @@ MCP server for Microsoft 365 OneDrive and SharePoint — browse, search, upload,
 
 You need to register an app in Azure so the MCP server can access your files via the Graph API. This is a one-time setup that takes ~5 minutes.
 
-> **Tip**: If you already have an app registered for [oss-mcp-ms365-mail](https://github.com/omnitrex-oss/oss-mcp-ms365-mail), you can reuse the same app — just add the extra permissions below. Note: each server uses its own token cache, so you'll need to authenticate separately.
+> **Tip**: If you already have an app registered for [oss-mcp-outlook](https://github.com/omnitrex-oss/oss-mcp-outlook), you can reuse the same app — just add the extra permissions below. Note: each server uses its own token cache, so you'll need to authenticate separately.
 
 ### Step 1: Create the app
 
@@ -75,19 +75,19 @@ Your app should now have:
 ### 1. Build from source
 
 ```bash
-git clone https://github.com/omnitrex-oss/oss-mcp-ms365-files.git
-cd oss-mcp-ms365-files
+git clone https://github.com/omnitrex-oss/oss-mcp-onedrive.git
+cd oss-mcp-onedrive
 npm install
 npm run build
 ```
 
-### 2. Add to Claude Code
+### 2. Add to your MCP client
 
 ```bash
 claude mcp add --transport stdio \
   --env MS365_CLIENT_ID=<your-client-id> \
   --env MS365_TENANT_ID=<your-tenant-id> \
-  mcp-ms365-files -- node /path/to/mcp-ms365-files/dist/index.js
+  oss-mcp-onedrive -- node /path/to/oss-mcp-onedrive/dist/index.js
 ```
 
 ### 3. First use — device code authentication
@@ -99,7 +99,7 @@ The first time you use any file tool, the server triggers device code auth:
 3. Paste the code
 4. Sign in with your M365 account
 5. Click **Accept** when prompted for permissions
-6. Return to Claude Code — the tool will complete automatically
+6. Return to your MCP client — the tool will complete automatically
 
 After first auth, tokens are cached in your OS keychain (or `~/.mcp-ms365-files/token-cache.json` as fallback) and refreshed silently.
 
@@ -144,6 +144,10 @@ All via environment variables:
 - **Audit trail**: every write operation logged to `~/.mcp-ms365-files/audit/YYYY-MM.jsonl`
 - **No permanent deletes**: `files_delete` moves to recycle bin (recoverable for 93 days)
 - **No plaintext tokens**: stored in OS keychain or file with restricted permissions
+
+## Related
+
+- [oss-mcp-outlook](https://github.com/omnitrex-oss/oss-mcp-outlook) — MCP server for Outlook email and calendar
 
 ## Development
 

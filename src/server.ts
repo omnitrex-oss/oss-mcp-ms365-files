@@ -36,7 +36,7 @@ export async function createServer(): Promise<McpServer> {
 
   // Create MCP server
   const server = new McpServer({
-    name: "oss-mcp-ms365-files",
+    name: "oss-mcp-onedrive",
     version: "0.1.0",
   });
 
