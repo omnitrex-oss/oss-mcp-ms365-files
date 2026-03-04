@@ -1,5 +1,5 @@
 {
-  "name": "@omnitrex/mcp-ms365-files",
+  "name": "oss-mcp-ms365-files",
   "version": "0.1.0",
   "description": "MCP server for Microsoft 365 OneDrive and SharePoint file operations",
   "license": "MIT",
